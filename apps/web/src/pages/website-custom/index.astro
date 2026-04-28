@@ -37,12 +37,13 @@
     .hero-content { color: var(--white); text-align: center; max-width: 800px; margin: 0 auto; }
     .hero h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.2; }
     .hero p { font-size: 1.25rem; margin-bottom: 40px; opacity: 0.9; }
-    .btn { display: inline-block; padding: 16px 40px; background: var(--secondary); color: var(--primary); font-weight: 600; border-radius: 4px; transition: transform 0.3s; cursor: pointer; border: none; }
+    .btn { display: inline-block; padding: 16px 40px; background: var(--secondary); color: var(--primary); font-weight: 600; border-radius: 4px; transition: transform 0.3s; cursor: pointer; border: none; text-decoration: none; }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,162,39,0.4); }
-    .btn-outline { background: transparent; border: 2px solid var(--white); color: var(--white); margin-left: 15px; }
+    .btn-outline { background: transparent; border: 2px solid var(--white); color: var(--white); }
     .btn-outline:hover { background: var(--white); color: var(--primary); }
-    .btn-link { background: transparent; border: 2px solid var(--white); color: var(--white); margin-left: 15px; }
+    .btn-link { background: transparent; border: 2px solid var(--white); color: var(--white); }
     .btn-link:hover { background: var(--white); color: var(--primary); }
+    .hero-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
     
     .section { padding: 100px 0; }
     .section-title { text-align: center; margin-bottom: 60px; }
@@ -129,6 +130,8 @@
       .hero { min-height: auto; padding: 120px 20px 80px; }
       .hero h1 { font-size: 2rem; }
       .hero p { font-size: 1rem; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+      .hero-buttons .btn { width: 100%; max-width: 280px; text-align: center; }
       .btn { padding: 14px 30px; font-size: 0.9rem; }
       
       .section { padding: 60px 0; }
@@ -179,8 +182,10 @@
       <div class="hero-content">
         <h1>Klaim Keadilan Anda Disini</h1>
         <p>Tim pengacara profesional siap memberikan konsultasi hukum terbaik untuk Anda.</p>
-        <a href="/website-custom#booking" class="btn">Booking Sekarang</a>
-        <a href="/website-custom#services" class="btn btn-link">Lihat Layanan</a>
+        <div class="hero-buttons">
+          <a href="/website-custom#booking" class="btn">Booking Sekarang</a>
+          <a href="/website-custom#services" class="btn btn-link">Lihat Layanan</a>
+        </div>
       </div>
     </div>
   </section>
