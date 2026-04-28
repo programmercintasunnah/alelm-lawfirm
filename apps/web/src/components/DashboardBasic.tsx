@@ -41,7 +41,7 @@ export default function DashboardBasic() {
       )}
 
       {/* Main Content */}
-      <main style={{ marginTop: '60px', padding: '20px', marginLeft: sidebarOpen ? '220px' : '20px', transition: 'margin-left 0.3s' }}>
+      <main style={{ marginTop: '60px', padding: '20px', marginLeft: sidebarOpen ? '220px' : '0', transition: 'margin-left 0.3s' }}>
         <div style={{ marginBottom: '20px' }}>
           <h2 style={{ fontSize: '1.5rem', color: '#1a365d', marginBottom: '5px' }}>Dashboard Basic</h2>
           <p style={{ color: '#718096', fontSize: '0.9rem' }}>Kelola konten website</p>

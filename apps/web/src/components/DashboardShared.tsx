@@ -38,7 +38,10 @@ export function DashboardSidebar({ package: pkg, sidebarOpen, setSidebarOpen, cu
     <aside style={{ 
       position: 'fixed', left: sidebarOpen ? 0 : '-200px', top: '60px', bottom: 0, width: '200px',
       background: bgGradient, color: 'white', padding: '15px', 
-      transition: 'left 0.3s', display: 'flex', flexDirection: 'column', zIndex: 999, overflowY: 'auto'
+      display: 'flex', flexDirection: 'column', zIndex: 999, overflowY: 'auto',
+      visibility: sidebarOpen ? 'visible' : 'hidden',
+      transition: 'left 0.3s ease-in-out, visibility 0s 0.3s',
+      pointerEvents: sidebarOpen ? 'auto' : 'none'
     }}>
       <div style={{ marginBottom: '15px', paddingBottom: '10px', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
         <span style={{ background: '#c9a227', color: '#1a365d', padding: '2px 8px', borderRadius: '10px', fontSize: '0.6rem', fontWeight: 600 }}>
