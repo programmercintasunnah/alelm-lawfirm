@@ -118,10 +118,12 @@
 
     @media (max-width: 768px) {
       nav { flex-direction: column; gap: 15px; padding: 15px 0; }
-      .nav-links { display: none; flex-direction: column; width: 100%; text-align: center; gap: 15px; }
+      .nav-links { display: none; flex-direction: column; width: 100%; text-align: center; gap: 10px; padding: 10px 0; }
       .nav-links.active { display: flex; }
-      .nav-dropdown { position: static; }
-      .nav-dropdown-content { position: static; box-shadow: none; border-radius: 0; text-align: center; }
+      .nav-dropdown { width: 100%; }
+      .nav-dropdown-btn { justify-content: center; width: 100%; padding: 10px 0; }
+      .nav-dropdown-content { position: static; display: none; box-shadow: none; border-radius: 0; text-align: center; background: #f7fafc; width: 100%; }
+      .nav-dropdown.active .nav-dropdown-content { display: block; }
       .hamburger { display: block; position: absolute; right: 20px; top: 15px; }
       
       .hero { min-height: auto; padding: 120px 20px 80px; }
@@ -411,6 +413,16 @@
   <a href="https://wa.me/6282286250694" class="floating-wa" target="_blank">Konsultasi</a>
 
   <script>
+    // Toggle nav dropdown on mobile
+    document.querySelectorAll('.nav-dropdown-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          this.parentElement.classList.toggle('active');
+        }
+      });
+    });
+    
     document.getElementById('bookingForm').addEventListener('submit', function(e) {
       e.preventDefault();
       document.getElementById('successMessage').classList.add('show');

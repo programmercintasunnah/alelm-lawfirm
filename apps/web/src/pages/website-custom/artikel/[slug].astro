@@ -63,8 +63,12 @@
     
     @media (max-width: 768px) {
       nav { flex-direction: column; gap: 15px; padding: 15px 0; }
-      .nav-links { display: none; flex-direction: column; width: 100%; text-align: center; gap: 15px; }
+      .nav-links { display: none; flex-direction: column; width: 100%; text-align: center; gap: 10px; padding: 10px 0; }
       .nav-links.active { display: flex; }
+      .nav-dropdown { width: 100%; }
+      .nav-dropdown-btn { justify-content: center; width: 100%; padding: 10px 0; }
+      .nav-dropdown-content { position: static; display: none; box-shadow: none; border-radius: 0; text-align: center; background: #f7fafc; width: 100%; }
+      .nav-dropdown.active .nav-dropdown-content { display: block; }
       .hamburger { display: block; position: absolute; right: 20px; top: 15px; }
       .article-header { padding: 120px 20px 60px; margin-top: 60px; }
       .article-header h1 { font-size: 1.8rem; }

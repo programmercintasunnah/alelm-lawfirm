@@ -77,8 +77,10 @@
       nav { flex-direction: column; gap: 15px; padding: 15px 0; }
       .nav-links { display: none; flex-direction: column; width: 100%; text-align: center; gap: 15px; }
       .nav-links.active { display: flex; }
-      .nav-dropdown { position: static; }
-      .nav-dropdown-content { position: static; box-shadow: none; border-radius: 0; text-align: center; }
+      .nav-dropdown { width: 100%; position: static; }
+      .nav-dropdown-btn { justify-content: center; width: 100%; padding: 10px 0; }
+      .nav-dropdown-content { position: static; display: none; box-shadow: none; border-radius: 0; text-align: center; background: #f7fafc; width: 100%; }
+      .nav-dropdown.active .nav-dropdown-content { display: block; }
       .hamburger { display: block; position: absolute; right: 20px; top: 15px; }
       
       .page-header { padding: 120px 20px 60px; margin-top: 60px; }
@@ -294,6 +296,16 @@
       filterArticles(topic);
       document.getElementById('articles-section')?.scrollIntoView({behavior: 'smooth'});
     }
+    
+    // Toggle nav dropdown on mobile
+    document.querySelectorAll('.nav-dropdown-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          this.parentElement.classList.toggle('active');
+        }
+      });
+    });
     
     // Check URL param for topic filter on page load
     const urlParams = new URLSearchParams(window.location.search);
