@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alelm - Layanan Hukum Profesional</title>
+  <title>Alelm Lawfirm - Layanan Hukum Profesional</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -22,6 +22,7 @@
     .nav-links { display: flex; gap: 30px; }
     .nav-links a { font-weight: 500; transition: color 0.3s; }
     .nav-links a:hover { color: var(--secondary); }
+    .hamburger { display: none; cursor: pointer; font-size: 1.5rem; padding: 5px; }
     
     .hero { background: linear-gradient(rgba(26,54,93,0.9), rgba(26,54,93,0.8)), url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=1920') center/cover; min-height: 100vh; display: flex; align-items: center; padding-top: 80px; }
     .hero-content { color: var(--white); text-align: center; max-width: 800px; margin: 0 auto; }
@@ -49,13 +50,37 @@
     .footer h3 { margin-bottom: 20px; font-size: 1.25rem; }
     .footer p { opacity: 0.8; margin-bottom: 10px; }
     .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.2); opacity: 0.6; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav { flex-direction: column; gap: 15px; padding: 15px 0; }
+      .nav-links { display: none; flex-direction: column; width: 100%; text-align: center; gap: 15px; }
+      .nav-links.active { display: flex; }
+      .hamburger { display: block; position: absolute; right: 20px; top: 15px; }
+      
+      .hero { min-height: auto; padding: 120px 20px 80px; }
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .btn { padding: 14px 30px; font-size: 0.9rem; }
+      
+      .services { padding: 60px 0; }
+      .services-grid { grid-template-columns: 1fr; gap: 20px; }
+      .service-card { padding: 30px; }
+      
+      .about-content { grid-template-columns: 1fr; gap: 30px; }
+      .about-text h2 { font-size: 1.75rem; }
+      .section-title h2 { font-size: 1.75rem; }
+      
+      .footer-grid { grid-template-columns: 1fr; text-align: center; }
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
       <nav>
-        <a href="/website" class="logo">⚖️ Alelm</a>
+        <a href="/website" class="logo">⚖️ Alelm Lawfirm</a>
+        <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</div>
         <ul class="nav-links">
           <li><a href="/website">Beranda</a></li>
           <li><a href="/website/services">Layanan</a></li>
@@ -108,7 +133,7 @@
       <div class="about-content">
         <div class="about-text">
           <h2>Tentang Kami</h2>
-          <p>Alelm telah membantu ratusan klien dalam menyelesaikan berbagai permasalahan hukum selama lebih dari 10 tahun. Tim kami terdiri dari pengacara-pengacara berpengalaman yang berkomitmen untuk memberikan yang terbaik bagi klien kami.</p>
+          <p>Alelm Lawfirm telah membantu ratusan klien dalam menyelesaikan berbagai permasalahan hukum selama lebih dari 10 tahun. Tim kami terdiri dari pengacara-pengacara berpengalaman yang berkomitmen untuk memberikan yang terbaik bagi klien kami.</p>
           <br>
           <p><strong>Visi:</strong> Menjadi firma hukum terpercaya yang memberikan dampak positif bagi masyarakat.</p>
           <br>
@@ -126,11 +151,11 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
-        <div><h3>Alelm</h3><p>Jl. Sudirman No. 123</p><p>Jakarta Selatan</p></div>
-        <div><h3>Kontak</h3><p>📞 +62 812 3456 7890</p><p>✉️ info@lawfirm.co.id</p></div>
+        <div><h3>Alelm Lawfirm</h3><p>Jl. Sudirman No. 123</p><p>Jakarta Selatan</p></div>
+        <div><h3>Kontak</h3><p>📞 +62 812 3456 7890</p><p>✉️ info@alelm.co.id</p></div>
         <div><h3>Layanan</h3><p><a href="/website/services">Hukum Keluarga</a></p><p><a href="/website/services">Hukum Perdata</a></p><p><a href="/website/services">Perjanjian Riba</a></p></div>
       </div>
-      <div class="footer-bottom"><p>&copy; 2026 Alelm. All rights reserved.</p></div>
+      <div class="footer-bottom"><p>&copy; 2026 Alelm Lawfirm. All rights reserved.</p></div>
     </div>
   </footer>
 </body>

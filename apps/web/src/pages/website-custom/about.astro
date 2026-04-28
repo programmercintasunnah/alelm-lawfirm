@@ -21,6 +21,7 @@
     .nav-links { display: flex; gap: 30px; }
     .nav-links a { font-weight: 500; transition: color 0.3s; }
     nav a:hover { color: var(--secondary); }
+    .hamburger { display: none; cursor: pointer; font-size: 1.5rem; }
     .page-header { background: linear-gradient(rgba(26,54,93,0.9), rgba(26,54,93,0.8)), url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=1920') center/cover; padding: 150px 0 80px; color: var(--white); text-align: center; }
     .page-header h1 { font-size: 3rem; margin-bottom: 15px; }
     .page-header p { font-size: 1.25rem; opacity: 0.9; }
@@ -48,6 +49,16 @@
     .footer h3 { margin-bottom: 20px; font-size: 1.25rem; }
     .footer p { opacity: 0.8; margin-bottom: 10px; }
     .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.2); opacity: 0.6; }
+    @media (max-width: 768px) {
+      nav { flex-direction: column; gap: 15px; padding: 15px 0; }
+      .nav-links { display: none; flex-direction: column; width: 100%; text-align: center; gap: 15px; }
+      .nav-links.active { display: flex; }
+      .hamburger { display: block; position: absolute; right: 20px; top: 15px; }
+      .page-header { padding: 120px 20px 60px; }
+      .page-header h1 { font-size: 2rem; }
+      .about-content, .vm-grid, .team-grid { grid-template-columns: 1fr; }
+      .about-text h2, .section-title h2 { font-size: 1.75rem; }
+    }
   </style>
 </head>
 <body>
@@ -55,6 +66,7 @@
     <div class="container">
       <nav>
         <a href="/website" class="logo">⚖️ Alelm</a>
+        <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</div>
         <ul class="nav-links">
           <li><a href="/website">Beranda</a></li>
           <li><a href="/website/services">Layanan</a></li>
@@ -72,7 +84,7 @@
     <div class="container">
       <div class="about-content">
         <div class="about-text">
-          <h2>Alelm</h2>
+          <h2>Alelm Lawfirm</h2>
           <p>Firma hukum terkemuka dengan pengalaman lebih dari 10 tahun memberikan layanan hukum profesional kepada berbagai klien, baik perorangan maupun perusahaan.</p>
           <p>Tim kami terdiri dari pengacara-pengacara berpengalaman yang berkomitmen untuk memberikan yang terbaik bagi klien kami.</p>
         </div>
@@ -101,8 +113,8 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
-        <div><h3>Alelm</h3><p>Jl. Sudirman No. 123</p><p>Jakarta Selatan</p></div>
-        <div><h3>Kontak</h3><p>📞 +62 812 3456 7890</p><p>✉️ info@lawfirm.co.id</p></div>
+        <div><h3>Alelm Lawfirm</h3><p>Jl. Sudirman No. 123</p><p>Jakarta Selatan</p></div>
+        <div><h3>Kontak</h3><p>📞 +62 812 3456 7890</p><p>✉️ info@alelm.co.id</p></div>
       </div>
       <div class="footer-bottom"><p>&copy; 2026 Alelm. All rights reserved.</p></div>
     </div>

@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alelm - CUSTOM (Booking)</title>
+  <title>Alelm Lawfirm - CUSTOM (Booking)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    :root { --primary: #1a365d; --secondary: #c9a227; --text: #2d3748; --light: #f7fafc; --white: #ffffff; --success: #38a169; }
+    :root { --primary: #1a365d; --secondary: #c9a227; --text: #2d3748; --light: #f7fafc; --white: #ffffff; }
     body { font-family: 'Poppins', sans-serif; color: var(--text); line-height: 1.6; background: var(--light); }
     h1, h2, h3 { font-family: 'Playfair Display', serif; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
@@ -22,6 +22,7 @@
     .nav-links { display: flex; gap: 30px; }
     .nav-links a { font-weight: 500; }
     nav a:hover { color: var(--secondary); }
+    .hamburger { display: none; cursor: pointer; font-size: 1.5rem; }
     .hero { background: linear-gradient(rgba(26,54,93,0.9), rgba(26,54,93,0.8)), url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=1920') center/cover; min-height: 100vh; display: flex; align-items: center; padding-top: 80px; }
     .hero-content { color: var(--white); text-align: center; max-width: 800px; margin: 0 auto; }
     .hero h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.2; }
@@ -45,7 +46,6 @@
     .form-group { margin-bottom: 20px; }
     .form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--primary); }
     .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 14px 18px; border: 2px solid #e2e8f0; border-radius: 6px; font-family: inherit; font-size: 1rem; }
-    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--secondary); }
     .form-group textarea { min-height: 120px; resize: vertical; }
     .success-message { background: #c6f6d5; color: #22543d; padding: 20px; border-radius: 8px; margin-bottom: 20px; text-align: center; display: none; }
     .success-message.show { display: block; }
@@ -54,22 +54,29 @@
     .feature-card { background: var(--white); padding: 40px; border-radius: 8px; text-align: center; }
     .feature-icon { font-size: 3rem; margin-bottom: 20px; }
     .feature-card h3 { color: var(--primary); margin-bottom: 15px; }
-    .about { padding: 100px 0; background: var(--white); }
-    .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-    .about-text h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
-    .about-image img { width: 100%; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
     .footer { background: var(--primary); color: var(--white); padding: 60px 0 30px; }
     .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
     .footer h3 { margin-bottom: 20px; font-size: 1.25rem; }
     .footer p { opacity: 0.8; margin-bottom: 10px; }
     .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.2); opacity: 0.6; }
+    @media (max-width: 768px) {
+      nav { flex-direction: column; gap: 15px; padding: 15px 0; }
+      .nav-links { display: none; flex-direction: column; width: 100%; text-align: center; gap: 15px; }
+      .nav-links.active { display: flex; }
+      .hamburger { display: block; position: absolute; right: 20px; top: 15px; }
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
       <nav>
-        <a href="/website-custom" class="logo">⚖️ Alelm<span class="badge-custom">CUSTOM</span></a>
+        <a href="/website-custom" class="logo">⚖️ Alelm Lawfirm<span class="badge-custom">CUSTOM</span></a>
+        <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</div>
         <ul class="nav-links">
           <li><a href="/website-custom">Beranda</a></li>
           <li><a href="/website-custom/services">Layanan</a></li>
@@ -143,10 +150,10 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
-        <div><h3>Alelm <span class="badge-custom">CUSTOM</span></h3><p>Jl. Sudirman No. 123</p><p>Jakarta Selatan</p></div>
-        <div><h3>Kontak</h3><p>📞 +62 812 3456 7890</p><p>✉️ info@lawfirm.co.id</p></div>
+        <div><h3>Alelm Lawfirm <span class="badge-custom">CUSTOM</span></h3><p>Jl. Sudirman No. 123</p><p>Jakarta Selatan</p></div>
+        <div><h3>Kontak</h3><p>📞 +62 812 3456 7890</p><p>✉️ info@alelm.co.id</p></div>
       </div>
-      <div class="footer-bottom"><p>&copy; 2026 Alelm CUSTOM. All rights reserved.</p></div>
+      <div class="footer-bottom"><p>&copy; 2026 Alelm Lawfirm CUSTOM. All rights reserved.</p></div>
     </div>
   </footer>
 
