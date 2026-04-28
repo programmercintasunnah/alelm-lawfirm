@@ -10,6 +10,7 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root { --primary: #1a365d; --secondary: #c9a227; --text: #2d3748; --light: #f7fafc; --white: #ffffff; }
+    html { scroll-behavior: smooth; }
     body { font-family: 'Poppins', sans-serif; color: var(--text); line-height: 1.6; background: var(--light); }
     h1, h2, h3 { font-family: 'Playfair Display', serif; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
@@ -31,24 +32,57 @@
     .btn { display: inline-block; padding: 16px 40px; background: var(--secondary); color: var(--primary); font-weight: 600; border-radius: 4px; transition: transform 0.3s, box-shadow 0.3s; }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,162,39,0.4); }
     
-    .services { padding: 100px 0; background: var(--white); }
+    .section { padding: 100px 0; }
     .section-title { text-align: center; margin-bottom: 60px; }
     .section-title h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
+    .section-title p { font-size: 1.1rem; color: #718096; }
+    
+    .services { background: var(--white); }
     .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
     .service-card { background: var(--light); padding: 40px; border-radius: 8px; transition: transform 0.3s, box-shadow 0.3s; }
     .service-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
     .service-icon { font-size: 3rem; margin-bottom: 20px; }
     .service-card h3 { color: var(--primary); margin-bottom: 15px; }
     
-    .about { padding: 100px 0; background: var(--light); }
+    .about { background: var(--light); }
     .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
     .about-text h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+    .about-text p { font-size: 1.1rem; margin-bottom: 20px; color: #4a5568; }
     .about-image img { width: 100%; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+    .team-card { background: var(--white); padding: 30px; border-radius: 8px; text-align: center; }
+    .team-photo { width: 120px; height: 120px; border-radius: 50%; background: var(--primary); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: var(--white); }
+    .team-card h3 { color: var(--primary); margin-bottom: 5px; font-size: 1.1rem; }
+    .team-card .position { color: var(--secondary); font-weight: 600; margin-bottom: 10px; font-size: 0.9rem; }
+    .team-card p { color: #718096; font-size: 0.9rem; }
+    
+    .faq { background: var(--white); }
+    .faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+    .faq-item { background: var(--light); padding: 25px; border-radius: 8px; border-left: 4px solid var(--secondary); }
+    .faq-item h3 { color: var(--primary); font-size: 1.1rem; margin-bottom: 10px; }
+    .faq-item p { color: #4a5568; }
+    
+    .contact { background: var(--light); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+    .contact-info h2 { font-size: 2rem; color: var(--primary); margin-bottom: 30px; }
+    .info-item { margin-bottom: 25px; }
+    .info-item h3 { font-size: 1.1rem; color: var(--primary); margin-bottom: 8px; }
+    .info-item p { color: #4a5568; }
+    .info-item a { color: var(--secondary); font-weight: 500; }
+    .contact-form h2 { font-size: 2rem; color: var(--primary); margin-bottom: 30px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--primary); }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 14px 18px; border: 2px solid #e2e8f0; border-radius: 6px; font-family: inherit; font-size: 1rem; }
+    .form-group textarea { min-height: 120px; resize: vertical; }
+    .form-btn { display: inline-block; padding: 16px 40px; background: var(--secondary); color: var(--primary); font-weight: 600; border-radius: 4px; border: none; cursor: pointer; transition: transform 0.3s; }
+    .form-btn:hover { transform: translateY(-2px); }
     
     .footer { background: var(--primary); color: var(--white); padding: 60px 0 30px; }
     .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
     .footer h3 { margin-bottom: 20px; font-size: 1.25rem; }
     .footer p { opacity: 0.8; margin-bottom: 10px; }
+    .footer a:hover { color: var(--secondary); }
     .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.2); opacity: 0.6; }
 
     /* Responsive */
@@ -63,7 +97,7 @@
       .hero p { font-size: 1rem; }
       .btn { padding: 14px 30px; font-size: 0.9rem; }
       
-      .services { padding: 60px 0; }
+      .section { padding: 60px 0; }
       .services-grid { grid-template-columns: 1fr; gap: 20px; }
       .service-card { padding: 30px; }
       
@@ -71,6 +105,7 @@
       .about-text h2 { font-size: 1.75rem; }
       .section-title h2 { font-size: 1.75rem; }
       
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
       .footer-grid { grid-template-columns: 1fr; text-align: center; }
     }
   </style>
@@ -79,30 +114,30 @@
   <header>
     <div class="container">
       <nav>
-        <a href="/website" class="logo">⚖️ Alelm Lawfirm</a>
-        <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</div>
+        <a href="/website" class="logo">Alelm Lawfirm</a>
+        <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('active')">=</div>
         <ul class="nav-links">
-          <li><a href="/website">Beranda</a></li>
-          <li><a href="/website/services">Layanan</a></li>
-          <li><a href="/website/about">Tentang</a></li>
-          <li><a href="/website/faq">FAQ</a></li>
-          <li><a href="/website/contact">Kontak</a></li>
+          <li><a href="/website#hero">Beranda</a></li>
+          <li><a href="/website#services">Layanan</a></li>
+          <li><a href="/website#about">Tentang</a></li>
+          <li><a href="/website#faq">FAQ</a></li>
+          <li><a href="/website#contact">Kontak</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <section class="hero">
+  <section id="hero" class="hero">
     <div class="container">
       <div class="hero-content">
         <h1>Klaim Keadilan Anda Disini</h1>
         <p>Tim pengacara profesional siap memberikan konsultasi hukum terbaik untuk Anda.</p>
-        <a href="/website/services" class="btn">Konsultasi Gratis</a>
+        <a href="/website#contact" class="btn">Konsultasi Gratis</a>
       </div>
     </div>
   </section>
 
-  <section class="services">
+  <section id="services" class="section services">
     <div class="container">
       <div class="section-title">
         <h2>Layanan Hukum</h2>
@@ -110,17 +145,17 @@
       </div>
       <div class="services-grid">
         <div class="service-card">
-          <div class="service-icon">👨‍👩‍👧‍👦</div>
+          <div class="service-icon">A</div>
           <h3>Hukum Keluarga</h3>
           <p>Layanan hukum terkait keluarga meliputi perceraian, hak asuh anak, warisan, dan permasalahan rumah tangga.</p>
         </div>
         <div class="service-card">
-          <div class="service-icon">📜</div>
+          <div class="service-icon">B</div>
           <h3>Hukum Perdata</h3>
           <p>Layanan hukum perdata meliputi sengketa perdata, kontrak, dan permasalahan hukum lainnya.</p>
         </div>
         <div class="service-card">
-          <div class="service-icon">💰</div>
+          <div class="service-icon">C</div>
           <h3>Perjanjian Riba</h3>
           <p>Konsultasi dan pendampingan hukum terkait perjanjian riba, pembiayaan, dan masalah keuangan Islam.</p>
         </div>
@@ -128,18 +163,23 @@
     </div>
   </section>
 
-  <section class="about">
+  <section id="about" class="section about">
     <div class="container">
+      <div class="section-title">
+        <h2>Tentang Kami</h2>
+        <p>Mengenal lebih dekat tentang Alelm Lawfirm</p>
+      </div>
       <div class="about-content">
         <div class="about-text">
-          <h2>Tentang Kami</h2>
-          <p>Alelm Lawfirm telah membantu ratusan klien dalam menyelesaikan berbagai permasalahan hukum selama lebih dari 10 tahun. Tim kami terdiri dari pengacara-pengacara berpengalaman yang berkomitmen untuk memberikan yang terbaik bagi klien kami.</p>
+          <h2>Alelm Lawfirm</h2>
+          <p>Firma hukum terkemuka dengan pengalaman lebih dari 10 tahun memberikan layanan hukum profesional kepada berbagai klien, baik perorangan maupun perusahaan.</p>
+          <p>Tim kami terdiri dari pengacara-pengacara berpengalaman yang berkomitmen untuk memberikan yang terbaik bagi klien kami.</p>
           <br>
-          <p><strong>Visi:</strong> Menjadi firma hukum terpercaya yang memberikan dampak positif bagi masyarakat.</p>
+          <p style="font-weight: 600; color: var(--primary);">Visi:</p>
+          <p>Menjadi firma hukum terpercaya yang memberikan dampak positif bagi masyarakat dalam mencapai keadilan.</p>
           <br>
-          <p><strong>Misi:</strong> Memberikan layanan hukum profesional, terjangkau, dan berintegritas untuk mencapai keadilan bagi semua klien.</p>
-          <br>
-          <a href="/website/about" class="btn">Baca Selengkapnya</a>
+          <p style="font-weight: 600; color: var(--primary);">Misi:</p>
+          <p>Memberikan layanan hukum profesional, terjangkau, dan berintegritas untuk mencapai keadilan bagi semua klien.</p>
         </div>
         <div class="about-image">
           <img src="https://images.unsplash.com/photo-1555436169-20e93ea9a7ff?w=800" alt="Law Firm">
@@ -148,12 +188,134 @@
     </div>
   </section>
 
+  <section class="section" style="background: var(--white);">
+    <div class="container">
+      <div class="section-title">
+        <h2>Tim Pengacara</h2>
+        <p>Tim profesional yang siap membantu Anda</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-photo">A</div>
+          <h3>Ahmad Wijaya, S.H., M.H.</h3>
+          <p class="position">Managing Partner</p>
+          <p>Pengacara senior dengan pengalaman 15 tahun di bidang hukum perdata dan keluarga.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-photo">S</div>
+          <h3>Siti Rahayu, S.H.</h3>
+          <p class="position">Senior Associate</p>
+          <p>Spesialis hukum keluarga dengan keahlian di bidang perceraian dan hak asuh anak.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-photo">B</div>
+          <h3>Budi Santoso, S.H., LL.M.</h3>
+          <p class="position">Associate</p>
+          <p>Ahli dalam perjanjian riba dan hukum perbankan Islam.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section faq">
+    <div class="container">
+      <div class="section-title">
+        <h2>Pertanyaan Umum</h2>
+        <p>Temukan jawaban untuk pertanyaan yang sering ditanyakan</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>Bagaimana cara memesan konsultasi hukum?</h3>
+          <p>Anda dapat memesan konsultasi melalui tombol WhatsApp, atau menghubungi kami langsung melalui halaman kontak.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Berapa biaya konsultasi hukum?</h3>
+          <p>Biaya konsultasi bervariasi tergantung kompleksitas kasus. Silakan hubungi kami untuk informasi lebih lanjut.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Apakah identitas saya dijaga kerahasiaannya?</h3>
+          <p>Tentu, seluruh informasi dijaga kerahasiaan sesuai kode etik advokat Indonesia.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Berapa lama proses penanganan kasus?</h3>
+          <p>Lama penanganan kasus tergantung pada kompleksitas masalah hukum Anda.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Apakah bisa melakukan konsultasi online?</h3>
+          <p>Ya, kami menyediakan konsultasi melalui video call.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Hubungi Kami</h2>
+        <p>Silakan hubungi kami untuk konsultasi hukum</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>Get In Touch</h2>
+          <div class="info-item">
+            <h3>Alamat</h3>
+            <p>Jl. Sudirman No. 123, Jakarta Selatan<br>DKI Jakarta 10220, Indonesia</p>
+          </div>
+          <div class="info-item">
+            <h3>Telepon</h3>
+            <p>+62 812 3456 7890</p>
+          </div>
+          <div class="info-item">
+            <h3>Email</h3>
+            <p>info@alelm.co.id</p>
+          </div>
+          <div class="info-item">
+            <h3>WhatsApp</h3>
+            <p><a href="https://wa.me/6281234567890" target="_blank">Kirim pesan via WhatsApp</a></p>
+          </div>
+        </div>
+        <div class="contact-form">
+          <h2>Kirim Pesan</h2>
+          <form>
+            <div class="form-group"><label>Nama Lengkap</label><input type="text" placeholder="Masukkan nama Anda" required></div>
+            <div class="form-group"><label>Email</label><input type="email" placeholder="email@anda.com" required></div>
+            <div class="form-group"><label>Nomor Telepon</label><input type="tel" placeholder="+62 xxx" required></div>
+            <div class="form-group"><label>Layanan yang Dibutuhkan</label>
+              <select>
+                <option value="">Pilih layanan...</option>
+                <option value="keluarga">Hukum Keluarga</option>
+                <option value="perdata">Hukum Perdata</option>
+                <option value="riba">Perjanjian Riba</option>
+                <option value="lainnya">Lainnya</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Pesan</label><textarea placeholder="Ceritakan masalah hukum Anda..." required></textarea></div>
+            <button type="submit" class="form-btn">Kirim Pesan</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
-        <div><h3>Alelm Lawfirm</h3><p>Jl. Sudirman No. 123</p><p>Jakarta Selatan</p></div>
-        <div><h3>Kontak</h3><p>📞 +62 812 3456 7890</p><p>✉️ info@alelm.co.id</p></div>
-        <div><h3>Layanan</h3><p><a href="/website/services">Hukum Keluarga</a></p><p><a href="/website/services">Hukum Perdata</a></p><p><a href="/website/services">Perjanjian Riba</a></p></div>
+        <div>
+          <h3>Alelm Lawfirm</h3>
+          <p>Jl. Sudirman No. 123</p>
+          <p>Jakarta Selatan</p>
+        </div>
+        <div>
+          <h3>Kontak</h3>
+          <p>+62 812 3456 7890</p>
+          <p>info@alelm.co.id</p>
+        </div>
+        <div>
+          <h3>Layanan</h3>
+          <p><a href="/website#services">Hukum Keluarga</a></p>
+          <p><a href="/website#services">Hukum Perdata</a></p>
+          <p><a href="/website#services">Perjanjian Riba</a></p>
+        </div>
       </div>
       <div class="footer-bottom"><p>&copy; 2026 Alelm Lawfirm. All rights reserved.</p></div>
     </div>
