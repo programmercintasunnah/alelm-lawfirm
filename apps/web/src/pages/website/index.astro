@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alelm - Layanan Hukum Profesional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --primary: #1a365d; --secondary: #c9a227; --text: #2d3748; --light: #f7fafc; --white: #ffffff; }
+    body { font-family: 'Poppins', sans-serif; color: var(--text); line-height: 1.6; background: var(--light); }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    
+    header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+    .nav-links { display: flex; gap: 30px; }
+    .nav-links a { font-weight: 500; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--secondary); }
+    
+    .hero { background: linear-gradient(rgba(26,54,93,0.9), rgba(26,54,93,0.8)), url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=1920') center/cover; min-height: 100vh; display: flex; align-items: center; padding-top: 80px; }
+    .hero-content { color: var(--white); text-align: center; max-width: 800px; margin: 0 auto; }
+    .hero h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.2; }
+    .hero p { font-size: 1.25rem; margin-bottom: 40px; opacity: 0.9; }
+    .btn { display: inline-block; padding: 16px 40px; background: var(--secondary); color: var(--primary); font-weight: 600; border-radius: 4px; transition: transform 0.3s, box-shadow 0.3s; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,162,39,0.4); }
+    
+    .services { padding: 100px 0; background: var(--white); }
+    .section-title { text-align: center; margin-bottom: 60px; }
+    .section-title h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+    .service-card { background: var(--light); padding: 40px; border-radius: 8px; transition: transform 0.3s, box-shadow 0.3s; }
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    .service-icon { font-size: 3rem; margin-bottom: 20px; }
+    .service-card h3 { color: var(--primary); margin-bottom: 15px; }
+    
+    .about { padding: 100px 0; background: var(--light); }
+    .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .about-text h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+    .about-image img { width: 100%; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    
+    .footer { background: var(--primary); color: var(--white); padding: 60px 0 30px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+    .footer h3 { margin-bottom: 20px; font-size: 1.25rem; }
+    .footer p { opacity: 0.8; margin-bottom: 10px; }
+    .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.2); opacity: 0.6; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="/website" class="logo">⚖️ Alelm</a>
+        <ul class="nav-links">
+          <li><a href="/website">Beranda</a></li>
+          <li><a href="/website/services">Layanan</a></li>
+          <li><a href="/website/about">Tentang</a></li>
+          <li><a href="/website/faq">FAQ</a></li>
+          <li><a href="/website/contact">Kontak</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Klaim Keadilan Anda Disini</h1>
+        <p>Tim pengacara profesional siap memberikan konsultasi hukum terbaik untuk Anda.</p>
+        <a href="/website/services" class="btn">Konsultasi Gratis</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Layanan Hukum</h2>
+        <p>Kami menyediakan berbagai layanan hukum profesional</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">👨‍👩‍👧‍👦</div>
+          <h3>Hukum Keluarga</h3>
+          <p>Layanan hukum terkait keluarga meliputi perceraian, hak asuh anak, warisan, dan permasalahan rumah tangga.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📜</div>
+          <h3>Hukum Perdata</h3>
+          <p>Layanan hukum perdata meliputi sengketa perdata, kontrak, dan permasalahan hukum lainnya.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💰</div>
+          <h3>Perjanjian Riba</h3>
+          <p>Konsultasi dan pendampingan hukum terkait perjanjian riba, pembiayaan, dan masalah keuangan Islam.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>Tentang Kami</h2>
+          <p>Alelm telah membantu ratusan klien dalam menyelesaikan berbagai permasalahan hukum selama lebih dari 10 tahun. Tim kami terdiri dari pengacara-pengacara berpengalaman yang berkomitmen untuk memberikan yang terbaik bagi klien kami.</p>
+          <br>
+          <p><strong>Visi:</strong> Menjadi firma hukum terpercaya yang memberikan dampak positif bagi masyarakat.</p>
+          <br>
+          <p><strong>Misi:</strong> Memberikan layanan hukum profesional, terjangkau, dan berintegritas untuk mencapai keadilan bagi semua klien.</p>
+          <br>
+          <a href="/website/about" class="btn">Baca Selengkapnya</a>
+        </div>
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1555436169-20e93ea9a7ff?w=800" alt="Law Firm">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><h3>Alelm</h3><p>Jl. Sudirman No. 123</p><p>Jakarta Selatan</p></div>
+        <div><h3>Kontak</h3><p>📞 +62 812 3456 7890</p><p>✉️ info@lawfirm.co.id</p></div>
+        <div><h3>Layanan</h3><p><a href="/website/services">Hukum Keluarga</a></p><p><a href="/website/services">Hukum Perdata</a></p><p><a href="/website/services">Perjanjian Riba</a></p></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 Alelm. All rights reserved.</p></div>
+    </div>
+  </footer>
+</body>
+</html>
