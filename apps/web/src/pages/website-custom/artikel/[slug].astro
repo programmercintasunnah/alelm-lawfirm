@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artikel - Alelm Lawfirm</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --primary: #1a365d; --secondary: #c9a227; --text: #2d3748; --light: #f7fafc; --white: #ffffff; }
+    body { font-family: 'Poppins', sans-serif; color: var(--text); line-height: 1.8; background: var(--light); }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+    a { text-decoration: none; color: inherit; }
+    
+    header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+    .badge-custom { background: var(--secondary); color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-left: 8px; }
+    .nav-links { display: flex; gap: 30px; align-items: center; }
+    .nav-links a { font-weight: 500; }
+    .nav-links li { position: relative; }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-content { display: none; position: absolute; top: 100%; left: 0; background: var(--white); min-width: 200px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); border-radius: 6px; padding: 10px 0; z-index: 1001; }
+    .nav-dropdown:hover .nav-dropdown-content { display: block; }
+    .nav-dropdown-content a { display: block; padding: 10px 20px; color: var(--text); font-weight: 500; font-size: 0.9rem; }
+    .nav-dropdown-content a:hover { background: var(--light); color: var(--primary); }
+    .nav-dropdown-btn { font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 5px; }
+    .hamburger { display: none; cursor: pointer; font-size: 1.5rem; padding: 5px; }
+    
+    .article-header { background: linear-gradient(rgba(26,54,93,0.9), rgba(26,54,93,0.8)), url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=1920') center/cover; padding: 150px 0 80px; color: var(--white); margin-top: 60px; }
+    .article-header .container { text-align: center; }
+    .article-header h1 { font-size: 2.5rem; margin-bottom: 20px; line-height: 1.3; }
+    .article-header .topic { display: inline-block; background: var(--secondary); color: var(--primary); padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 15px; }
+    .article-header .meta { font-size: 0.95rem; opacity: 0.9; }
+    
+    .article-content { padding: 60px 0; background: var(--white); }
+    .article-body { font-size: 1.1rem; line-height: 1.9; color: #2d3748; }
+    .article-body h2 { font-size: 1.8rem; color: var(--primary); margin: 40px 0 20px; }
+    .article-body h3 { font-size: 1.4rem; color: var(--primary); margin: 30px 0 15px; }
+    .article-body p { margin-bottom: 20px; }
+    .article-body ul, .article-body ol { margin: 20px 0 20px 30px; }
+    .article-body li { margin-bottom: 10px; }
+    
+    .article-footer { padding: 40px 0; border-top: 1px solid #e2e8f0; }
+    .back-link { display: inline-block; color: var(--secondary); font-weight: 600; }
+    .back-link:hover { text-decoration: underline; }
+    
+    .footer { background: var(--primary); color: var(--white); padding: 60px 0 30px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+    .footer h3 { margin-bottom: 20px; font-size: 1.25rem; }
+    .footer p { opacity: 0.8; margin-bottom: 10px; }
+    .footer a:hover { color: var(--secondary); }
+    .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.2); opacity: 0.6; }
+    
+    .floating-btns { position: fixed; top: 50%; right: 20px; transform: translateY(-50%); display: flex; flex-direction: column; gap: 12px; z-index: 999; }
+    .floating-btn { width: 50px; height: 50px; border-radius: 50%; background: var(--primary); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.3s; }
+    .floating-btn:hover { transform: scale(1.1); }
+    .floating-wa { position: fixed; bottom: 80px; right: 20px; background: #25D366; color: white; padding: 14px 20px; border-radius: 50px; font-weight: 600; font-size: 0.95rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 999; text-decoration: none; transition: transform 0.3s; display: flex; align-items: center; gap: 8px; }
+    .floating-wa:hover { transform: scale(1.05); background: #1da851; }
+    
+    @media (max-width: 768px) {
+      nav { flex-direction: column; gap: 15px; padding: 15px 0; }
+      .nav-links { display: none; flex-direction: column; width: 100%; text-align: center; gap: 15px; }
+      .nav-links.active { display: flex; }
+      .hamburger { display: block; position: absolute; right: 20px; top: 15px; }
+      .article-header { padding: 120px 20px 60px; margin-top: 60px; }
+      .article-header h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="/website-custom" class="logo">Alelm Lawfirm<span class="badge-custom">CUSTOM</span></a>
+        <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('active')">=</div>
+        <ul class="nav-links">
+          <li><a href="/website-custom#hero">Beranda</a></li>
+          <li><a href="/website-custom#services">Layanan</a></li>
+          <li><a href="/website-custom#about">Tentang</a></li>
+          <li><a href="/website-custom#faq">FAQ</a></li>
+          <li class="nav-dropdown">
+            <span class="nav-dropdown-btn">Artikel ▼</span>
+            <div class="nav-dropdown-content">
+              <a href="/website-custom/artikel">Semua</a>
+              <a href="/website-custom/artikel?topic=hukum-keluarga">Hukum Keluarga</a>
+              <a href="/website-custom/artikel?topic=waris">Waris</a>
+              <a href="/website-custom/artikel?topic=perjanjian-riba">Perjanjian Riba</a>
+              <a href="/website-custom/artikel?topic=pidana-hukum">Pidana Hukum</a>
+              <a href="/website-custom/artikel?topic=pidana-khusus">Pidana Khusus</a>
+              <a href="/website-custom/artikel?topic=prosedur-acara">Prosedur Acara Pengadilan</a>
+            </div>
+          </li>
+          <li><a href="/website-custom#contact">Kontak</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="article-header">
+    <div class="container">
+      <span class="topic">Pidana Hukum</span>
+      <h1>Contoh Judul Artikel Hukum</h1>
+      <p class="meta">Dipublikasikan pada 1 Januari 2026 | oleh Tim Pengacara Alelm Lawfirm</p>
+    </div>
+  </section>
+
+  <section class="article-content">
+    <div class="container">
+      <div class="article-body">
+        <p>Artikel dalam pengembangan. Saat ini konten artikel sedang dalam tahap penulisan. Silakan hubungi kami untuk informasi lebih lanjut mengenai topik hukum yang Anda butuhkan.</p>
+        
+        <h2>Kesimpulan</h2>
+        <p>Hubungi tim pengacara kami untuk konsultasi lebih lanjut terkait permasalahan hukum Anda.</p>
+      </div>
+      
+      <div class="article-footer">
+        <a href="/website-custom/artikel" class="back-link">← Kembali ke Semua Artikel</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>Alelm Lawfirm <span class="badge-custom">CUSTOM</span></h3>
+          <p>Jl. Sudirman No. 123</p>
+          <p>Jakarta Selatan</p>
+        </div>
+        <div>
+          <h3>Kontak</h3>
+          <p>+62 812 3456 7890</p>
+          <p>info@alelm.co.id</p>
+        </div>
+        <div>
+          <h3>Layanan</h3>
+          <p><a href="/website-custom#services">Hukum Keluarga</a></p>
+          <p><a href="/website-custom#services">Hukum Perdata</a></p>
+          <p><a href="/website-custom#services">Perjanjian Riba</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 Alelm Lawfirm CUSTOM. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <div class="floating-btns">
+    <a href="/" class="floating-btn" title="Home">H</a>
+    <a href="/website" class="floating-btn" title="Website Basic">B</a>
+  </div>
+  <a href="https://wa.me/6282286250694" class="floating-wa" target="_blank">Konsultasi</a>
+</body>
+</html>
