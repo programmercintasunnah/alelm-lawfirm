@@ -1,0 +1,28 @@
+# Build output
+apps/web/dist/
+
+# Dependencies
+apps/web/node_modules/
+
+# Astro cache
+apps/web/.astro/
+
+# Vite cache
+apps/web/.vite/
+
+# Turbo cache
+.turbo/
+
+# Environment
+.env
+.env.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
