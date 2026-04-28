@@ -30,9 +30,7 @@
     .card-custom .card-header { background: linear-gradient(135deg, #1a365d, #0d1f3c); }
     
     .card-header h3 { font-size: 1.8rem; margin-bottom: 8px; }
-    .card-header p { opacity: 0.9; font-size: 0.9rem; margin-bottom: 15px; }
-    .card-header .header-btn { display: inline-block; padding: 10px 20px; background: var(--white); color: var(--primary); border-radius: 6px; font-weight: 600; font-size: 0.85rem; text-decoration: none; transition: all 0.3s; }
-    .card-header .header-btn:hover { background: var(--secondary); }
+    .card-header p { opacity: 0.9; font-size: 0.9rem; }
     
     .card-body { padding: 25px 30px; }
     .card-body h4 { color: var(--primary); margin-bottom: 12px; font-size: 0.95rem; }
@@ -40,8 +38,8 @@
     .card-body li { padding: 8px 0; color: #4a5568; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
     .card-body li::before { content: ""; width: 5px; height: 5px; background: #38a169; border-radius: 50%; flex-shrink: 0; }
     
-    .card-actions { padding: 0 30px 25px; display: flex; flex-direction: column; gap: 10px; }
-    .btn { display: block; width: 100%; padding: 14px 20px; text-align: center; border-radius: 8px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.3s; text-decoration: none; }
+    .card-actions { padding: 0 30px 25px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+    .btn { display: block; width: 100%; padding: 14px 10px; text-align: center; border-radius: 8px; font-weight: 600; font-size: 0.85rem; cursor: pointer; transition: all 0.3s; text-decoration: none; }
     .btn-primary { background: var(--primary); color: var(--white); }
     .btn-primary:hover { background: #2d4a7c; }
     .btn-outline { background: transparent; color: var(--text); border: 2px solid #e2e8f0; }
@@ -68,7 +66,6 @@
           <div class="card-header">
             <h3>Basic</h3>
             <p>Website dengan fitur standar</p>
-            <a href="/website" class="header-btn">Lihat Website</a>
           </div>
           <div class="card-body">
             <h4>Fitur:</h4>
@@ -86,6 +83,7 @@
           <div class="card-actions">
             <a href="/dashboard" class="btn btn-primary">Buka Dashboard</a>
             <a href="/website/login" class="btn btn-outline">Login</a>
+            <a href="/website" class="btn btn-outline">Lihat Website</a>
           </div>
         </div>
 
@@ -93,7 +91,6 @@
           <div class="card-header">
             <h3>Custom</h3>
             <p>Website dengan fitur lengkap</p>
-            <a href="/website-custom" class="header-btn">Lihat Website</a>
           </div>
           <div class="card-body">
             <h4>Semua fitur Basic +:</h4>
@@ -111,6 +108,7 @@
           <div class="card-actions">
             <a href="/dashboard-custom" class="btn btn-primary">Buka Dashboard</a>
             <a href="/website-custom/login" class="btn btn-outline">Login</a>
+            <a href="/website-custom" class="btn btn-outline">Lihat Website</a>
           </div>
         </div>
       </div>
